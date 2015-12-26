@@ -1,0 +1,69 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>calculator</title>
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <header>
+      <h1>JS Calculator</h1>
+    </header>
+    <main>
+      <div id="calc">
+        <p id="display"></p>
+        <ul id="nums">
+          <li><button class="num" data-value="7">7</button></li>
+          <li><button class="num" data-value="8">8</button></li>
+          <li><button class="num" data-value="9">9</button></li>
+          <li><button class="num" data-value="4">4</button></li>
+          <li><button class="num" data-value="5">5</button></li>
+          <li><button class="num" data-value="6">6</button></li>
+          <li><button class="num" data-value="1">1</button></li>
+          <li><button class="num" data-value="2">2</button></li>
+          <li><button class="num" data-value="3">3</button></li>
+          <li><button class="num" data-value="0">0</button></li>   
+          <li><button class="decimal">.</button></li>
+          <li><button class="filler"></button></li>               
+        </ul>
+        <ul id="ops">
+          <li><button class="op clear">c</button></li>
+          <li><button class="op" data-op="add">+</button></li>
+          <li><button class="op" data-op="subtract">-</button></li>
+          <li><button class="op" data-op="multiply">x</button></li>
+          <li><button class="op" data-op="divide">/</button></li>
+          <li><button class="op" data-op="equals">=</button></li>
+        </ul>
+      </div>
+    </main>
+    
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
