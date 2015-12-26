@@ -28,7 +28,7 @@
       <h1>JS Calculator</h1>
     </header>
     <main>
-      <div id="calc">
+      <div id="calc" class="shadow-top-z-1">
         <p id="display"></p>
         <ul id="nums">
           <li><button class="num" data-value="7">7</button></li>
@@ -41,15 +41,15 @@
           <li><button class="num" data-value="2">2</button></li>
           <li><button class="num" data-value="3">3</button></li>
           <li><button class="num" data-value="0">0</button></li>   
-          <li><button class="decimal">.</button></li>
+          <li><button class="decimal" data-value=".">.</button></li>
           <li><button class="filler"></button></li>               
         </ul>
         <ul id="ops">
-          <li><button class="op clear">c</button></li>
-          <li><button class="op" data-op="add">+</button></li>
-          <li><button class="op" data-op="subtract">-</button></li>
-          <li><button class="op" data-op="multiply">x</button></li>
-          <li><button class="op" data-op="divide">/</button></li>
+          <li><button class="op" data-op="clear">c</button></li>
+          <li><button class="op" data-op="+">+</button></li>
+          <li><button class="op" data-op="-">-</button></li>
+          <li><button class="op" data-op="*">x</button></li>
+          <li><button class="op" data-op="/">/</button></li>
           <li><button class="op" data-op="equals">=</button></li>
         </ul>
       </div>

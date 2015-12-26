@@ -1,6 +1,7 @@
 var calculator = {
 	total: 0,
-	currentOp: "",
+	inputs: [],
+	num: "",
 	init: function() {
 		this.cacheDom();
 		this.bindEvents();
@@ -16,98 +17,50 @@ var calculator = {
 		this.$display = $('#display');
 	},
 	bindEvents: function() {
-		this.$nums.on('click', 'button', this.handleNum.bind(this));
-		this.$clear.on('click', this.clearDisp.bind(this));
+		this.$nums.on('click', 'button', this.handleNums.bind(this));
 		this.$ops.on('click', 'button', this.handleOp.bind(this));		
 	},
 	render: function () {
-		this.$display.text(this.total);
+		this.$display.text(this.num);
 	},
-	handleNum: function (e) {
-		if (this.total === 0) {
-			this.total = "";
-		}
+	handleNums: function (e) {
+		clicked = e.target.dataset.value;
 
-		var num = e.target.dataset.value;
+		this.num += clicked;
 
-		if (this.currentOp === "") {
-			this.total += num;
-		} else {
-			switch(this.currentOp) {
-			    case "add":
-			        this.add(num);
-			        break;
-			    case "subtract":
-			        this.subtract(num);
-			        break;
-			    case "multiply":
-					this.multiply(num);
-					break;
-			    case "divide":
-			        this.divide(num);
-			        break;
-			    case "equals":
-			        this.equals(num);
-			        break;
-			}
-		}
-
-		this.total = parseInt(this.total, 10);
-
-		this.render();
+		this.render();  	
 	},
 	handleOp: function (e) {
+		this.inputs.push(this.num);
+		this.num = "";
 
-		if ($(e.target).hasClass('clear')) {
-			this.clearDisp;
+		clicked = e.target.dataset.op;
+
+		if (clicked === "equals") {
+			this.equals();
+			return;
+		} else if (clicked === "clear") {
+			this.clearDisp();
 			return;
 		}
 
-		var clicked = e.target.dataset.op;
-
-		this.currentOp = clicked;
-
+		this.inputs.push(clicked);		
 	},
 	clearDisp: function() {
+		this.num = "";
+		this.inputs = [];
 
-		this.total = 0;
-		this.currentOp = "";
+		this.render();
+	},
+	equals: function () {
+		var joined = this.inputs.join("");
+
+		this.num = eval(joined);
 
 		this.render();
 
-	},
-	add: function (num) {
-
-		var numValue = parseInt(num,10);
-
-		this.total += numValue;
-
-		this.render();
-
-	},
-	subtract: function (num) {
-
-		this.total -= num;
-
-		this.render();
-		
-	},
-	multiply: function (num) {
-
-		this.total = this.total * num;
-
-		this.render();
-		
-	},
-	divide: function (num) {
-
-		this.total = this.total / num;
-
-		this.render();
-		
-	},
-	equals: function (num) {
-
+		this.num = "";
+		this.inputs = [];
 	}
 
 };
