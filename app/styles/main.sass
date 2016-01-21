@@ -7,7 +7,6 @@
 @import 'materialize/materialize'
 
 //variables
-$btn-color: #00bcd4
 
 *
   box-sizing: border-box
@@ -33,20 +32,45 @@ h1
   margin: 0 auto 15px auto
 
 .btn 
-  margin-bottom: 8px
+  margin: 0 2px 8px 2px
   height: 50px
 
 @mixin btn-color($color)
-  @extend .btn
-  background: $color
-  &:hover
-    background: lighten($color,10%)
+  @if (lightness($color) > 50)
+    background: $color
+    color: #000
+    &:hover
+      background: lighten($color,7%)
+  @else 
+    background: $color
+    color: #fff
+    &:hover
+      background: lighten($color,7%)
 
-.default-btn
+
+.default-btn-color button
   +btn-color(#00bcd4)
 
-.green-btn
-  +btn-color(green)
+.purple-btn-color button
+  +btn-color(#673ab7)
+
+.green-btn-color button
+  +btn-color(#64dd17)
+
+.yellow-btn-color button
+  +btn-color(#fdd835)
+
+.red-btn-color button
+  +btn-color(#d50000)
+
+.orange-btn-color button
+  +btn-color(#ff9800)
+
+.pink-btn-color button
+  +btn-color(#e91e63)
+
+.grey-btn-color button
+  +btn-color(#C4C4C4)
 
 #nums
   width: 70%
@@ -55,7 +79,7 @@ h1
 //   display: flex
 
 .zero
-  width: 85%
+  width: 90%
 
 @mixin round-corners($corner, $number)
   border-#{$corner}-radius: $number
