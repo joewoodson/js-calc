@@ -37,5 +37,8 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "materialize-css": "^0.97.5"
   }
 }

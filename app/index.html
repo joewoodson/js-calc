@@ -28,9 +28,9 @@
       <h1>JS Calculator</h1>
     </header>
     <main>
-      <div id="calc" class="shadow-top-z-1">
+      <div id="calc">
         <p id="display"></p>
-        <ul id="nums">
+        <!-- <ul id="nums">
           <li><button class="num" data-value="7">7</button></li>
           <li><button class="num" data-value="8">8</button></li>
           <li><button class="num" data-value="9">9</button></li>
@@ -42,16 +42,36 @@
           <li><button class="num" data-value="3">3</button></li>
           <li><button class="num" data-value="0">0</button></li>   
           <li><button class="decimal" data-value=".">.</button></li>
-          <li><button class="filler"></button></li>               
-        </ul>
-        <ul id="ops">
+          <li><button class="filler">.</button></li>               
+        </ul> -->
+        <div id="nums">
+          <div class="num-row">
+            <button class="waves-effect waves-light btn default-btn top-left" data-value="7">7</button>
+            <button class="waves-effect waves-light btn white-text" data-value="8">8</button>
+            <button class="waves-effect waves-light btn white-text top-right" data-value="9">9</button>
+          </div>
+          <div class="num-row">
+            <button class="waves-effect waves-light btn white-text" data-value="4">4</button>
+            <button class="waves-effect waves-light btn white-text" data-value="5">5</button>
+            <button class="waves-effect waves-light btn white-text" data-value="6">6</button>
+          </div>
+          <div class="num-row">
+            <button class="waves-effect waves-light btn white-text" data-value="1">1</button>
+            <button class="waves-effect waves-light btn white-text" data-value="2">2</button>
+            <button class="waves-effect waves-light btn white-text" data-value="3">3</button>
+           </div>
+           <div class="num-row">
+            <button class="waves-effect waves-light btn white-text bottom-left bottom-right zero" data-value="0">0</button>
+          </div>
+        </div>
+        <!-- <ul id="ops">
           <li><button class="op" data-op="clear">c</button></li>
           <li><button class="op" data-op="+">+</button></li>
           <li><button class="op" data-op="-">-</button></li>
           <li><button class="op" data-op="*">x</button></li>
           <li><button class="op" data-op="/">/</button></li>
           <li><button class="op" data-op="equals">=</button></li>
-        </ul>
+        </ul> -->
       </div>
     </main>
     
@@ -63,6 +83,7 @@
     <!-- endbuild -->
     
     <!-- build:js scripts/main.js -->
+    <script src="scripts/materialize.min.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
   </body>
