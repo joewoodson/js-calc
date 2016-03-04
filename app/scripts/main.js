@@ -62,7 +62,33 @@ var calculator = {
 		this.num = "";
 		this.inputs = [];
 	}
-
 };
 
+var settings = {
+	init: function() {
+		this.cacheDom();
+		this.bindEvents();
+		this.render();
+	},
+	cacheDom: function() {
+		this.$el = $('#settings');
+		this.$toggleButton = this.$el.children('span');
+	},
+	bindEvents: function() {
+		this.$toggleButton.on('click', this.toggle.bind(this));
+		
+		//click main div to close settings panel
+		$('main').on('click', function() {
+			settings.$el.removeClass('open'); 				
+		});
+	},
+	render: function () {
+
+	},
+	toggle: function () {
+		this.$el.toggleClass('open');
+	}
+};
+
+settings.init();
 calculator.init();

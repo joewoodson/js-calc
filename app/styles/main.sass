@@ -5,8 +5,8 @@
 @import '../../bower_components/neat/app/assets/stylesheets/neat'
 @import url(https://fonts.googleapis.com/css?family=Roboto:400)
 @import 'materialize/materialize'
-
-//variables
+@import 'vars-mixins'
+@import 'settings-box'
 
 *
   box-sizing: border-box
@@ -17,72 +17,63 @@
 
 h1
   text-align: center
-  margin-bottom: 30px
+  margin: 3em 0 1em 0
+  color: grey
 
 #calc
-  text-align: center
   margin: 0 auto
-  width: 380px
+  padding-left: 10px
+  width: 440px
+  height: 20em
+  background: #fdd835
 
 #display
   text-align: right
   padding-right: 8px
-  width: 90%
+  width: 100%
   height: 45px
-  margin: 0 auto 15px auto
+  margin: 0 auto 35px auto
+  background-color: #eee
 
+
+/// Button Styling
 .btn 
-  margin: 0 2px 8px 2px
+  margin: 0 .25px 4px .25px
   height: 50px
 
-@mixin btn-color($color)
-  @if (lightness($color) > 50)
-    background: $color
-    color: #000
-    &:hover
-      background: lighten($color,7%)
-  @else 
-    background: $color
-    color: #fff
-    &:hover
-      background: lighten($color,7%)
-
-
-.default-btn-color button
-  +btn-color(#00bcd4)
-
-.purple-btn-color button
-  +btn-color(#673ab7)
-
-.green-btn-color button
-  +btn-color(#64dd17)
-
-.yellow-btn-color button
-  +btn-color(#fdd835)
-
-.red-btn-color button
-  +btn-color(#d50000)
-
-.orange-btn-color button
-  +btn-color(#ff9800)
-
-.pink-btn-color button
-  +btn-color(#e91e63)
-
-.grey-btn-color button
-  +btn-color(#C4C4C4)
-
 #nums
-  width: 70%
+  // width: 70%
+  float: left
 
-// .num-row
-//   display: flex
+#ops 
+  float: right
 
 .zero
-  width: 90%
+  width: 100%
 
-@mixin round-corners($corner, $number)
-  border-#{$corner}-radius: $number
+.default-btn-color button
+  +btn-color($default-color)
+
+.purple-btn-color button
+  +btn-color($purple)
+
+.green-btn-color button
+  +btn-color($green)
+
+.yellow-btn-color button
+  +btn-color($yellow)
+
+.red-btn-color button
+  +btn-color($red)
+
+.orange-btn-color button
+  +btn-color($orange)
+
+.pink-btn-color button
+  +btn-color($pink)
+
+.grey-btn-color button
+  +btn-color($grey)
 
 .top-left
   +round-corners('top-left',5px)

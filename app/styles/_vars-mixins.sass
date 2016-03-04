@@ -1,0 +1,25 @@
+//// Colors
+$default-color: #00bcd4
+$purple: #673ab7
+$green: #64dd17
+$yellow: #fdd835
+$red: #d50000
+$orange: #ff9800
+$pink: #e91e63
+$grey: #C4C4C4
+
+//// Mixins 
+@mixin round-corners($corner, $number)
+  border-#{$corner}-radius: $number
+
+@mixin btn-color($color)
+	@if (lightness($color) > 50)
+		background: $color
+		color: #000
+		&:hover
+  			background: lighten($color,7%)
+	@else 
+		background: $color
+		color: #fff
+		&:hover
+  			background: lighten($color,7%)

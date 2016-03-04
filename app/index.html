@@ -24,11 +24,15 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     
+    <div id="settings">
+      <span id="settings-button">colors</span>
+    </div>
+
     <header>
-      <h1>JS Calculator</h1>
+      <h1>Flat Calculator</h1>
     </header>
     <main>
-      <div id="calc">
+      <div id="calc" class="top-left top-right bottom-left bottom-right">
         <p id="display"></p>
         <!-- <ul id="nums">
           <li><button class="num" data-value="7">7</button></li>
@@ -44,23 +48,23 @@
           <li><button class="decimal" data-value=".">.</button></li>
           <li><button class="filler">.</button></li>               
         </ul> -->
-        <div id="nums" class="grey-btn-color">
-          <div class="num-row">
+        <div id="nums" class="default-btn-color">
+          <div>
             <button class="waves-effect waves-light btn top-left" data-value="7">7</button>
             <button class="waves-effect waves-light btn" data-value="8">8</button>
             <button class="waves-effect waves-light btn top-right" data-value="9">9</button>
           </div>
-          <div class="num-row">
+          <div>
             <button class="waves-effect waves-light btn" data-value="4">4</button>
             <button class="waves-effect waves-light btn" data-value="5">5</button>
             <button class="waves-effect waves-light btn" data-value="6">6</button>
           </div>
-          <div class="num-row">
+          <div>
             <button class="waves-effect waves-light btn" data-value="1">1</button>
             <button class="waves-effect waves-light btn" data-value="2">2</button>
             <button class="waves-effect waves-light btn" data-value="3">3</button>
            </div>
-           <div class="num-row">
+           <div>
             <button class="waves-effect waves-light btn bottom-left bottom-right zero" data-value="0">0</button>
           </div>
         </div>
@@ -72,6 +76,20 @@
           <li><button class="op" data-op="/">/</button></li>
           <li><button class="op" data-op="equals">=</button></li>
         </ul> -->
+        <div id="ops" class="default-btn-color">
+          <div>
+            <button class="waves-effect waves-light btn" data-op="clear">c</button>
+            <button class="waves-effect waves-light btn" data-op="+">+</button>
+          </div>
+          <div>
+            <button class="waves-effect waves-light btn" data-op="-">-</button>
+            <button class="waves-effect waves-light btn" data-op="*">*</button>
+          </div>
+          <div>
+            <button class="waves-effect waves-light btn" data-op="/">/</button>
+            <button class="waves-effect waves-light btn" data-op="equals">=</button>
+          </div>
+        </div>
       </div>
     </main>
     
