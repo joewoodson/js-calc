@@ -2,10 +2,13 @@ var calculator = {
 	total: 0,
 	inputs: [],
 	num: "",
+	origCoords: {},
 	init: function() {
 		this.cacheDom();
+		this.makeDraggable();
 		this.bindEvents();
 		this.render();
+		this.getOrigCoords();
 	},
 	cacheDom: function() {
 		this.$el = $('#calc');
@@ -22,6 +25,29 @@ var calculator = {
 	},
 	render: function () {
 		this.$display.text(this.num);
+	},
+	makeDraggable: function() {
+		$('.draggable').draggable({
+			containment: "document", 
+			grid: [ 12, 12 ], 
+			cancel: false
+		});
+	},
+	getOrigCoords: function () {
+		this.origCoords = {
+			display: {
+				left: this.$display.css('left'),
+				top: this.$display.css('top') 
+			},
+			nums: {
+				left: this.$nums.css('left'),
+				top: this.$nums.css('top')
+			},
+			ops: {
+				left: this.$ops.css('left'),
+				top: this.$ops.css('top')
+			}
+		}
 	},
 	handleNums: function (e) {
 		clicked = e.target.dataset.value;
@@ -59,12 +85,13 @@ var calculator = {
 
 		this.render();
 
-		this.num = "";
 		this.inputs = [];
 	}
 };
 
 var settings = {
+	currentColorMenu: 'display-color-menu',
+	currentColor: 'cyan',
 	init: function() {
 		this.cacheDom();
 		this.bindEvents();
@@ -72,7 +99,9 @@ var settings = {
 	},
 	cacheDom: function() {
 		this.$el = $('#settings');
-		this.$toggleButton = this.$el.children('span');
+		this.$toggleButton = this.$el.find('li:nth-child(1)');
+		this.$resetButton = this.$el.find('li:nth-child(2)');
+		this.$colorMenu = $('.color-menu');
 	},
 	bindEvents: function() {
 		this.$toggleButton.on('click', this.toggle.bind(this));
@@ -81,14 +110,51 @@ var settings = {
 		$('main').on('click', function() {
 			settings.$el.removeClass('open'); 				
 		});
+
+		this.$resetButton.on('click', this.reset.bind(this));
+
+		this.$colorMenu.on('click', 'button', this.changeColor.bind(this));
+
 	},
 	render: function () {
 
 	},
 	toggle: function () {
 		this.$el.toggleClass('open');
+	},
+	changeColor: function (e) {
+		clickedColorMenu = $(e.target).parent().attr('id');
+		console.log(clickedColorMenu);
+
+		$('.current-color').removeClass('current-color');
+		$(e.target).addClass('current-color');
+		newColor = e.target.dataset.color;
+
+		calculator.$display.removeClass(this.currentColor);		
+		calculator.$display.addClass(newColor);
+
+		this.currentColor = newColor;
+	},
+	reset: function () {
+		$("#nums, #display, #ops").css({
+	        'left': calculator.origCoords.display.left,
+	        'top': calculator.origCoords.display.top
+	    });
+
+	    calculator.$display.removeClass(this.currentColor);
+		calculator.$display.addClass('cyan');
+
+		$('.current-color').removeClass('current-color');
+		this.$colorMenu.find('.cyan').addClass('current-color');
+
 	}
 };
 
 settings.init();
 calculator.init();
+
+$(document).ready(function() {
+
+
+
+});

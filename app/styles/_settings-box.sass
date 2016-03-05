@@ -1,25 +1,62 @@
 @import 'vars-mixins'
 
 #settings	
-	height: 40px
+	height: 100px
 	margin: 0 auto
-	margin-top: -60px
+	margin-top: -100px
 	transition: margin-top .5s 
 	-webkit-transition: margin-top .5s
-	background: purple
+	background: lightgrey
 
 #settings.open
 	margin-top: 0
 
-#settings-button
+#color-menus
+	@include outer-container
+	padding-top: 8px
+	padding-left: 100px
+	.color-menu 
+		@include span-columns(4)
+		text-align: center
+		width: 30%
+		span 
+			text-transform: capitalize
+			color: grey
+			font-size: 14px
+			font-weight: bold
+			margin-bottom: 10px
+			display: block
+		.color-box
+			@include span-columns(1 of 4)
+			margin-bottom: 10px
+			height: 1.6em
+			width: 1.6em
+			border-radius: 2em
+			background-color: lightblue
+			border: none
+		.current-color
+			border: 2px solid #fff
+
+.inactive-color-menu
+	.color-box 
+		opacity: .3
+	
+
+#settings-buttons
 	position: absolute
+	display: inline
 	top: 0
 	left: 0
-	padding: 4px 0 0 8px
+	padding: 4px 10px 0 4px
 	height: 40px
 	text-transform: uppercase
 	font-size: 14px
 	font-weight: bold
 	color: grey
 	cursor: pointer
+	i 
+		padding-right: 3px
+
+#reset
+	margin-top: 10px
 
