@@ -122,17 +122,19 @@ var settings = {
 		this.$el.toggleClass('open');
 	},
 	changeColor: function (e) {
-		var $clickedMenu = $('#' + $(e.target).parent().attr('id'));
+		clickedMenu = e.target.parentNode.id;
 		$('.color-menu').not('.inactive-color-menu').addClass('inactive-color-menu');
-		$clickedMenu.removeClass('inactive-color-menu');
+		$('#' + clickedMenu).removeClass('inactive-color-menu');
+		menuComponent = $('#' + clickedMenu).data('menu');
 
-
-		$clickedMenu.children('.current-color').removeClass('current-color');
+		$('#' + clickedMenu).children('.current-color').removeClass('current-color');
 		$(e.target).addClass('current-color');
 		newColor = e.target.dataset.color;
 
-		calculator.$display.removeClass(this.currentColor);		
-		calculator.$display.addClass(newColor);
+
+
+		calculator['$' + menuComponent].removeClass(this.currentColor);		
+		calculator['$' + menuComponent].addClass(newColor);
 
 		this.currentColor = newColor;
 	},
@@ -143,7 +145,8 @@ var settings = {
 	    });
 
 	    calculator.$display.removeClass(this.currentColor);
-		calculator.$display.addClass('cyan');
+	    calculator.$nums.removeClass(this.currentColor);
+	    calculator.$ops.removeClass(this.currentColor);
 
 		$('.current-color').removeClass('current-color');
 		this.$colorMenu.find('.cyan').addClass('current-color');

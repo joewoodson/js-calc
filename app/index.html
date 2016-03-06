@@ -28,7 +28,7 @@
     
     <div id="settings">
       <div id="color-menus">
-        <div id="display-color-menu" class="color-menu">
+        <div id="display-color-menu" class="color-menu" data-menu="display">
           <span>display:</span>
           <button class="color-box current-color cyan" data-color="cyan"></button>
           <button class="color-box amber" data-color="amber"></button>
@@ -37,23 +37,23 @@
           <button class="color-box grey" data-color="grey"></button>
           <button class="color-box purple" data-color="purple"></button>           
         </div>
-        <div id="nums-color-menu" class="inactive-color-menu color-menu">
+        <div id="nums-color-menu" class="inactive-color-menu color-menu" data-menu="nums">
           <span>numbers:</span>
-          <button class="color-box current-color cyan"></button>
-          <button class="color-box amber"></button>
-          <button class="color-box teal"></button>
-          <button class="color-box red"></button>
-          <button class="color-box grey"></button>
-          <button class="color-box purple"></button>   
+          <button class="color-box current-color cyan" data-color="cyan"></button>
+          <button class="color-box amber" data-color="amber"></button>
+          <button class="color-box teal" data-color="teal"></button>
+          <button class="color-box red" data-color="red"></button>
+          <button class="color-box grey" data-color="grey"></button>
+          <button class="color-box purple" data-color="purple"></button>   
         </div>
-        <div id="ops-color-menu" class="inactive-color-menu color-menu">
+        <div id="ops-color-menu" class="inactive-color-menu color-menu" data-menu="ops">
           <span>operations:</span>
           <button class="color-box current-color cyan" data-color="cyan"></button>
-          <button class="color-box amber"></button>
-          <button class="color-box teal"></button>
-          <button class="color-box red"></button>
-          <button class="color-box grey"></button>
-          <button class="color-box purple"></button>   
+          <button class="color-box amber" data-color="amber"></button>
+          <button class="color-box teal" data-color="teal"></button>
+          <button class="color-box red" data-color="red"></button>
+          <button class="color-box grey" data-color="grey"></button>
+          <button class="color-box purple" data-color="purple"></button>   
         </div>
       </div>
       <ul id="settings-buttons">
@@ -68,9 +68,9 @@
     <main>
 
       <div id="calc">
-        <p id="display" class="cyan draggable top-left bottom-left top-right bottom-right"></p>
+        <p id="display" class="draggable top-left bottom-left top-right bottom-right"></p>
     
-        <div id="nums" class="cyan draggable default-btn-color">
+        <div id="nums" class="draggable">
           <div>
             <button class="waves-effect waves-light btn top-left" data-value="7">7</button>
             <button class="waves-effect waves-light btn" data-value="8">8</button>
@@ -91,7 +91,7 @@
           </div>
         </div>
 
-        <div id="ops" class="cyan draggable default-btn-color">
+        <div id="ops" class="draggable">
           <div>
             <button class="waves-effect waves-light btn" data-op="+">+</button>
             <button class="waves-effect waves-light btn top-right" data-op="-">-</button>
