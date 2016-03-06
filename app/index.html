@@ -25,7 +25,7 @@
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
+  
     <div id="settings">
       <div id="color-menus">
         <div id="display-color-menu" class="color-menu" data-menu="display">
@@ -59,6 +59,7 @@
       <ul id="settings-buttons">
         <li class="settings-button"><i class="material-icons">invert_colors</i>colors</li>
         <li id="reset" class="settings-button"><i class="material-icons">restore</i>reset</li>
+        <li id="about" class="settings-button"><i class="material-icons">live_help</i>about</li>
       </ul>
     </div>
 
@@ -68,11 +69,11 @@
     <main>
 
       <div id="calc">
-        <p id="display" class="draggable top-left bottom-left top-right bottom-right"></p>
+        <p id="display" class="draggable"></p>
     
         <div id="nums" class="draggable">
           <div>
-            <button class="waves-effect waves-light btn top-left" data-value="7">7</button>
+            <button class="waves-effect waves-light btn" data-value="7">7</button>
             <button class="waves-effect waves-light btn" data-value="8">8</button>
             <button class="waves-effect waves-light btn" data-value="9">9</button>
           </div>
@@ -87,15 +88,15 @@
             <button class="waves-effect waves-light btn" data-value="3">3</button>
            </div>
            <div>
-            <button class="waves-effect waves-light btn bottom-left bottom-right zero" data-value="0">0</button>
-            <button class="waves-effect waves-light btn bottom-left bottom-right decimal" data-value=".">.</button>            
+            <button class="waves-effect waves-light btn zero" data-value="0">0</button>
+            <button class="waves-effect waves-light btn decimal" data-value=".">.</button>            
           </div>
         </div>
 
         <div id="ops" class="draggable">
           <div>
             <button class="waves-effect waves-light btn" data-op="+">+</button>
-            <button class="waves-effect waves-light btn top-right" data-op="-">-</button>
+            <button class="waves-effect waves-light btn" data-op="-">-</button>
           </div>
           <div>
             <button class="waves-effect waves-light btn" data-op="/">&#247;</button>
@@ -103,14 +104,13 @@
           </div>
           <div>
             <button class="waves-effect waves-light btn" data-op="clear">c</button>
-            <button class="waves-effect waves-light btn bottom-right" data-op="equals">=</button>
+            <button class="waves-effect waves-light btn" data-op="equals">=</button>
           </div>
         </div>
 
       </div>
 
     </main>
-    
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
