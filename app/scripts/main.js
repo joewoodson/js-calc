@@ -90,7 +90,9 @@ var calculator = {
 };
 
 var settings = {
-	currentColor: 'cyan',
+	displayCurrentColor: 'cyan',
+	numsCurrentColor: 'cyan',
+	opsCurrentColor: 'cyan',
 	init: function() {
 		this.cacheDom();
 		this.bindEvents();
@@ -131,12 +133,10 @@ var settings = {
 		$(e.target).addClass('current-color');
 		newColor = e.target.dataset.color;
 
-
-
-		calculator['$' + menuComponent].removeClass(this.currentColor);		
+		calculator['$' + menuComponent].removeClass(this[menuComponent + 'CurrentColor']);		
 		calculator['$' + menuComponent].addClass(newColor);
 
-		this.currentColor = newColor;
+		this[menuComponent + 'CurrentColor'] = newColor;
 	},
 	reset: function () {
 		$("#nums, #display, #ops").css({
@@ -144,9 +144,9 @@ var settings = {
 	        'top': calculator.origCoords.display.top
 	    });
 
-	    calculator.$display.removeClass(this.currentColor);
-	    calculator.$nums.removeClass(this.currentColor);
-	    calculator.$ops.removeClass(this.currentColor);
+	    calculator.$display.removeClass(this.displayCurrentColor);
+	    calculator.$nums.removeClass(this.numsCurrentColor);
+	    calculator.$ops.removeClass(this.opsCurrentColor);
 
 		$('.current-color').removeClass('current-color');
 		this.$colorMenu.find('.cyan').addClass('current-color');
