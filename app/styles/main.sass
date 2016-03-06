@@ -5,6 +5,7 @@
 @import '../../bower_components/neat/app/assets/stylesheets/neat'
 @import url(https://fonts.googleapis.com/css?family=Roboto:400)
 @import 'materialize/materialize'
+@import 'materialize/components/color'
 @import 'vars-mixins'
 @import 'settings-box'
 @import '../bower_components/neat/app/assets/stylesheets/neat'
@@ -35,8 +36,6 @@ h1
   line-height: 45px
   margin: 0 auto 12px auto
   color: #fff
-  background-color: $default-color
-
 
 /// Button Styling
 .btn 
@@ -50,9 +49,11 @@ h1
   // width: 70%
   float: left
   margin-right: 8px
+  background: transparent !important
 
 #ops 
   float: right
+  background: transparent !important
   button 
     text-transform: lowercase
     font-size: 20px
@@ -60,29 +61,26 @@ h1
 .zero
   width: 100%
 
-.default-btn-color button
-  +btn-color($default-color)
+// .purple button
+//   +btn-color($purple)
 
-.purple-btn-color button
-  +btn-color($purple)
+// .pink button
+  // +btn-color($pink)
 
-.green-btn-color button
-  +btn-color($green)
+// .yellow-btn-color button
+//   +btn-color($yellow)
 
-.yellow-btn-color button
-  +btn-color($yellow)
+// .red-btn-color button
+//   +btn-color($red)
 
-.red-btn-color button
-  +btn-color($red)
+// .orange-btn-color button
+//   +btn-color($orange)
 
-.orange-btn-color button
-  +btn-color($orange)
+// .pink-btn-color button
+//   +btn-color($pink)
 
-.pink-btn-color button
-  +btn-color($pink)
-
-.grey-btn-color button
-  +btn-color($grey)
+// .grey-btn-color button
+//   +btn-color($grey)
 
 .top-left
   +round-corners('top-left',5px)

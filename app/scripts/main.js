@@ -90,7 +90,6 @@ var calculator = {
 };
 
 var settings = {
-	currentColorMenu: 'display-color-menu',
 	currentColor: 'cyan',
 	init: function() {
 		this.cacheDom();
@@ -123,10 +122,12 @@ var settings = {
 		this.$el.toggleClass('open');
 	},
 	changeColor: function (e) {
-		clickedColorMenu = $(e.target).parent().attr('id');
-		console.log(clickedColorMenu);
+		var $clickedMenu = $('#' + $(e.target).parent().attr('id'));
+		$('.color-menu').not('.inactive-color-menu').addClass('inactive-color-menu');
+		$clickedMenu.removeClass('inactive-color-menu');
 
-		$('.current-color').removeClass('current-color');
+
+		$clickedMenu.children('.current-color').removeClass('current-color');
 		$(e.target).addClass('current-color');
 		newColor = e.target.dataset.color;
 
