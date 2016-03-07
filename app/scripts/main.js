@@ -159,77 +159,77 @@ calculator.init();
 
 // Add modal functionality
 var modal = (function(){
-				var 
-				method = {},
-				$overlay,
-				$modal,
-				$content,
-				$close;
+	var 
+	method = {},
+	$overlay,
+	$modal,
+	$content,
+	$close;
 
-				// Center the modal in the viewport
-				method.center = function () {
-					var top, left;
+	// Center the modal in the viewport
+	method.center = function () {
+		var top, left;
 
-					top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
-					left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+		top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
+		left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
 
-					$modal.css({
-						top:top + $(window).scrollTop(), 
-						left:left + $(window).scrollLeft()
-					});
-				};
+		$modal.css({
+			top:top + $(window).scrollTop() - 100, 
+			left:left + $(window).scrollLeft()
+		});
+	};
 
-				// Open the modal
-				method.open = function (settings) {
-					$content.empty().append(settings.content);
+	// Open the modal
+	method.open = function (settings) {
+		$content.empty().append(settings.content);
 
-					$modal.css({
-						width: settings.width || 'auto', 
-						height: settings.height || 'auto'
-					});
+		$modal.css({
+			width: settings.width || 'auto', 
+			height: settings.height || 'auto'
+		});
 
-					method.center();
-					$(window).bind('resize.modal', method.center);
-					$modal.show();
-					$overlay.show();
-				};
+		method.center();
+		$(window).bind('resize.modal', method.center);
+		$modal.show();
+		$overlay.show();
+	};
 
-				// Close the modal
-				method.close = function () {
-					$modal.hide();
-					$overlay.hide();
-					$content.empty();
-					$(window).unbind('resize.modal');
-				};
+	// Close the modal
+	method.close = function () {
+		$modal.hide();
+		$overlay.hide();
+		$content.empty();
+		$(window).unbind('resize.modal');
+	};
 
-				// Generate the HTML and add it to the document
-				$overlay = $('<div id="overlay"></div>');
-				$modal = $('<div id="modal"></div>');
-				$content = $('<div id="content"></div>');
-				$close = $('<a id="close" href="#">close</a>');
+	// Generate the HTML and add it to the document
+	$overlay = $('<div id="overlay"></div>');
+	$modal = $('<div id="modal"></div>');
+	$content = $('<div id="content"></div>');
+	$close = $('<a id="close" href="#">close</a>');
 
-				$modal.hide();
-				$overlay.hide();
-				$modal.append($content, $close);
+	$modal.hide();
+	$overlay.hide();
+	$modal.append($content, $close);
 
-				$(document).ready(function(){
-					$('body').append($overlay, $modal);						
-				});
+	$(document).ready(function(){
+		$('body').append($overlay, $modal);						
+	});
 
-				$close.click(function(e){
-					e.preventDefault();
-					method.close();
-				});
+	$close.click(function(e){
+		e.preventDefault();
+		method.close();
+	});
 
-				return method;
-			}());
+	return method;
+}());
 
-			// Wait until the DOM has loaded before querying the document
-			$(document).ready(function(){
+// Wait until the DOM has loaded before querying the document
+$(document).ready(function(){
 
-				$('#about').click(function(e){
-					modal.open({content: "Hows it going?"});
-					e.preventDefault();
-				});
+	$('#about').click(function(e){
+		modal.open({content: "Click and drag to reorganize the calculator components, or open the color panel to customize the colors", width: 350});
+		e.preventDefault();
+	});
 
-			});
+});
