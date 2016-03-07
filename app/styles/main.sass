@@ -84,13 +84,27 @@ h1
 
 #modal 
   position: absolute
-  background: rgba(255,255,255,0.8) 
+  background: rgba(0,0,0,0.8) 
   border-radius: 3px
-  padding: 28px
+  padding: 20px
   line-height: 22px
+  color: #fff
 
-#content 
-  padding-bottom: 20px
+#content
+  padding-bottom: 40px
+
+
+#tag 
+  float: right
+  a:hover
+    color: lighten(#0588C8, 30)
 
 #close 
-  z-index: 100 !important
+  position:absolute
+  background: url('../images/close.png') 0 0 no-repeat
+  width: 24px
+  height: 27px
+  display: block
+  text-indent: -9999px
+  top: -7px
+  right: -7px

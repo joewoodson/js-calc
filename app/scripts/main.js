@@ -206,11 +206,12 @@ var modal = (function(){
 	$overlay = $('<div id="overlay"></div>');
 	$modal = $('<div id="modal"></div>');
 	$content = $('<div id="content"></div>');
+	$tag = $('<div id="tag">created by <a href="http://joewoodson.de">joe woodson</a></div>')
 	$close = $('<a id="close" href="#">close</a>');
 
 	$modal.hide();
 	$overlay.hide();
-	$modal.append($content, $close);
+	$modal.append($content, $tag, $close);
 
 	$(document).ready(function(){
 		$('body').append($overlay, $modal);						
@@ -228,7 +229,7 @@ var modal = (function(){
 $(document).ready(function(){
 
 	$('#about').click(function(e){
-		modal.open({content: "Click and drag to reorganize the calculator components, or open the color panel to customize the colors", width: 350});
+		modal.open({content: "<em>Click and drag</em> to reorganize the calculator components, or open the <em>color panel</em> to customize the colors", width: 350});
 		e.preventDefault();
 	});
 
